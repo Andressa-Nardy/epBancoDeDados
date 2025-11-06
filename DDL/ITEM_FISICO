@@ -1,9 +1,7 @@
 CREATE TABLE ITEM_FISICO (
     ID_Item INT PRIMARY KEY,
     Setor VARCHAR(50),
-    Num_Gaveta VARCHAR(10),
     Prateleira VARCHAR(10),
-    Disponibilidade VARCHAR(20),
     
     -- PK/FK para ITEM_ACERVO
     CONSTRAINT FK_ItemFisico_Acervo FOREIGN KEY (ID_Item)
