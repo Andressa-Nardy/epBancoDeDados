@@ -1,0 +1,50 @@
+-- Usando os IDs digitais já existentes em ITEM_ACERVO (8 itens)
+INSERT INTO ITEM_DIGITAL (ID_Item, Formato, Link_Acesso, Num_Downloads) VALUES
+(1004, 'PDF', 'http://link.com/hist-comp', 55),
+(1008, 'EPUB', 'http://link.com/modelar', 32),
+(1010, 'PDF', 'http://link.com/java-intro', 88),
+(1016, 'EPUB', 'http://link.com/redes-fund', 45),
+(1019, 'PDF', 'http://link.com/design-ui', 61),
+(1022, 'EPUB', 'http://link.com/poemas-mar', 12),
+(1025, 'PDF', 'http://link.com/mkt-digital', 75),
+(1027, 'EPUB', 'http://link.com/dev-web', 90);
+
+-- Para atingir 25+ registros em ACESSO_DIGITAL, o volume de downloads (acessos) por item já faz o trabalho. Vou inserir mais 17 itens digitais fictícios no ITEM_ACERVO e ITEM_DIGITAL para cumprir a meta de 25+ na tabela ITEM_DIGITAL.
+INSERT INTO ITEM_ACERVO (ID_Item, Titulo, Genero, Autor, Ano_Publicacao, Tipo_Item) VALUES
+(2001, 'Ebook: Gestão de Projetos', 'Negócios', 'E. PM', 2023, 'E-book'),
+(2002, 'Artigo: IA e Futuro', 'Ciência', 'F. AI', 2024, 'E-book'),
+(2003, 'Apostila de Design Gráfico', 'Design', 'G. Designer', 2022, 'E-book'),
+(2004, 'Tutorial: AWS Básico', 'Técnico', 'H. Cloud', 2023, 'E-book'),
+(2005, 'Livro Digital: Contabilidade', 'Negócios', 'I. Money', 2021, 'E-book'),
+(2006, 'PDF: Cibersegurança', 'Técnico', 'J. Secure', 2024, 'E-book'),
+(2007, 'Epub: Meditação', 'Saúde', 'K. Zen', 2022, 'E-book'),
+(2008, 'Artigo: Economia Verde', 'Economia', 'L. Green', 2023, 'E-book'),
+(2009, 'Livro Digital: Culinária Vegana', 'Culinária', 'M. Vegan', 2021, 'E-book'),
+(2010, 'Revista Digital: Fotografia', 'Arte', 'N. Photo', 2024, 'E-book'),
+(2011, 'PDF: Marketing de Conteúdo', 'Negócios', 'O. Content', 2022, 'E-book'),
+(2012, 'Ebook: Programação Funcional', 'Técnico', 'P. Lambda', 2023, 'E-book'),
+(2013, 'Tutorial: Docker', 'Técnico', 'Q. Container', 2024, 'E-book'),
+(2014, 'Livro Digital: Liderança', 'Negócios', 'R. Leader', 2021, 'E-book'),
+(2015, 'Artigo: Neurociência', 'Ciência', 'S. Brain', 2023, 'E-book'),
+(2016, 'PDF: História do Brasil', 'História', 'T. Brasil', 2020, 'E-book'),
+(2017, 'Revista Digital: Moda', 'Moda', 'U. Style', 2023, 'E-book');
+
+INSERT INTO ITEM_DIGITAL (ID_Item, Formato, Link_Acesso, Num_Downloads) VALUES
+(2001, 'PDF', 'http://link.com/proj-gestao', 60),
+(2002, 'PDF', 'http://link.com/ia-futuro', 120),
+(2003, 'EPUB', 'http://link.com/design-graf', 40),
+(2004, 'PDF', 'http://link.com/aws-basic', 70),
+(2005, 'PDF', 'http://link.com/contabilidade', 55),
+(2006, 'EPUB', 'http://link.com/ciberseguranca', 95),
+(2007, 'PDF', 'http://link.com/meditacao', 30),
+(2008, 'EPUB', 'http://link.com/economia-verde', 45),
+(2009, 'PDF', 'http://link.com/culinaria-vegana', 50),
+(2010, 'PDF', 'http://link.com/fotografia', 40),
+(2011, 'EPUB', 'http://link.com/mkt-conteudo', 65),
+(2012, 'PDF', 'http://link.com/funcional', 80),
+(2013, 'PDF', 'http://link.com/docker-tutorial', 75),
+(2014, 'EPUB', 'http://link.com/lideranca', 55),
+(2015, 'PDF', 'http://link.com/neurociencia', 90),
+(2016, 'PDF', 'http://link.com/historia-br', 35),
+(2017, 'EPUB', 'http://link.com/moda', 20);
+-- TOTAL ITEM_DIGITAL: 8 + 17 = 25 Registros
