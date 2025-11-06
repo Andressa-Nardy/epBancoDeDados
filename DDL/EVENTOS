@@ -4,7 +4,6 @@ CREATE TABLE EVENTOS (
     Tipo VARCHAR(50),
     Data_Inicio DATE NOT NULL,
     Data_Fim DATE,
-    Num_Inscritos INT DEFAULT 0,
     Outras_Relacionadas TEXT,
     ID_Infra INT,
     
