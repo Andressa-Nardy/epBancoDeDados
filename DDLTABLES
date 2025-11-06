@@ -1,1 +1,156 @@
+-- 1. Criação das Entidades Fortes (Pais)
 
+CREATE TABLE USUARIO (
+    CPF VARCHAR(11) PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    Data_Cadastro DATE
+);
+
+CREATE TABLE ITEM_ACERVO (
+    ID_Item INT PRIMARY KEY,
+    Titulo VARCHAR(255) NOT NULL,
+    Genero VARCHAR(50),
+    Autor VARCHAR(100),
+    Ano_Publicacao INT,
+    Tipo_Item VARCHAR(50)
+);
+
+CREATE TABLE INFRAESTRUTURA (
+    ID_Infra INT PRIMARY KEY,
+    Local VARCHAR(100) NOT NULL,
+    Status VARCHAR(50),
+    Tipo VARCHAR(50),
+    Capacidade INT,
+    Quantidade INT
+);
+
+-- 2. Entidade EVENTOS (Filha de INFRAESTRUTURA - Relacionamento N:1)
+
+CREATE TABLE EVENTOS (
+    ID_Evento INT PRIMARY KEY,
+    Nome_Evento VARCHAR(150) NOT NULL,
+    Tipo VARCHAR(50),
+    Data_Inicio DATE NOT NULL,
+    Data_Fim DATE,
+    Num_Inscritos INT DEFAULT 0,
+    Outras_Relacionadas TEXT,
+    ID_Infra INT,
+    
+    -- Chave Estrangeira para OCORRE_EM
+    CONSTRAINT FK_Evento_Infra FOREIGN KEY (ID_Infra)
+        REFERENCES INFRAESTRUTURA (ID_Infra)
+);
+
+-- 3. Entidades de Especialização (Filhas de ITEM_ACERVO)
+
+CREATE TABLE ITEM_FISICO (
+    ID_Item INT PRIMARY KEY,
+    Setor VARCHAR(50),
+    Num_Gaveta VARCHAR(10),
+    Prateleira VARCHAR(10),
+    Disponibilidade VARCHAR(20),
+    
+    -- PK/FK para ITEM_ACERVO
+    CONSTRAINT FK_ItemFisico_Acervo FOREIGN KEY (ID_Item)
+        REFERENCES ITEM_ACERVO (ID_Item)
+);
+
+CREATE TABLE ITEM_DIGITAL (
+    ID_Item INT PRIMARY KEY,
+    Formato VARCHAR(20),
+    Link_Acesso VARCHAR(255),
+    Num_Downloads INT DEFAULT 0,
+    
+    -- PK/FK para ITEM_ACERVO
+    CONSTRAINT FK_ItemDigital_Acervo FOREIGN KEY (ID_Item)
+        REFERENCES ITEM_ACERVO (ID_Item)
+);
+
+-- 4. Entidade Fraca (Filha de ITEM_FISICO)
+
+CREATE TABLE EXEMPLAR (
+    ID_Item INT NOT NULL,
+    Num INT NOT NULL,
+    Disponivel BOOLEAN,
+    
+    -- Chave Primária Composta
+    PRIMARY KEY (ID_Item, Num),
+    
+    -- Chave Estrangeira para ITEM_FISICO
+    CONSTRAINT FK_Exemplar_ItemFisico FOREIGN KEY (ID_Item)
+        REFERENCES ITEM_FISICO (ID_Item)
+);
+
+-- 5. Tabelas de Relacionamento N:M e Ternário
+
+CREATE TABLE EMPRESTIMO (
+    ID_Item INT NOT NULL,
+    Num INT NOT NULL,
+    CPF_Usuario VARCHAR(11) NOT NULL,
+    Data_Emprestimo DATE NOT NULL,
+    Data_Devolucao_Prevista DATE,
+    Data_Devolucao_Real DATE,
+    
+    -- Chave Primária Composta (Identificador do Empréstimo)
+    PRIMARY KEY (ID_Item, Num, CPF_Usuario, Data_Emprestimo),
+    
+    -- Chave Estrangeira para EXEMPLAR
+    CONSTRAINT FK_Emprestimo_Exemplar FOREIGN KEY (ID_Item, Num)
+        REFERENCES EXEMPLAR (ID_Item, Num),
+        
+    -- Chave Estrangeira para USUARIO
+    CONSTRAINT FK_Emprestimo_Usuario FOREIGN KEY (CPF_Usuario)
+        REFERENCES USUARIO (CPF)
+);
+
+CREATE TABLE ACESSO_DIGITAL (
+    ID_Item_Digital INT NOT NULL,
+    CPF_Usuario VARCHAR(11) NOT NULL,
+    Data_Acesso TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Chave Primária Composta
+    PRIMARY KEY (ID_Item_Digital, CPF_Usuario, Data_Acesso),
+    
+    -- Chave Estrangeira para ITEM_DIGITAL
+    CONSTRAINT FK_Acesso_Digital_Item FOREIGN KEY (ID_Item_Digital)
+        REFERENCES ITEM_DIGITAL (ID_Item),
+        
+    -- Chave Estrangeira para USUARIO
+    CONSTRAINT FK_Acesso_Digital_Usuario FOREIGN KEY (CPF_Usuario)
+        REFERENCES USUARIO (CPF)
+);
+
+CREATE TABLE RESERVA_INFRA (
+    CPF_Usuario VARCHAR(11) NOT NULL,
+    ID_Infra INT NOT NULL,
+    Data_Reserva_Inicio DATE NOT NULL,
+    Data_Reserva_Fim DATE NOT NULL,
+    
+    -- Chave Primária Composta
+    PRIMARY KEY (CPF_Usuario, ID_Infra, Data_Reserva_Inicio),
+    
+    -- Chave Estrangeira para USUARIO
+    CONSTRAINT FK_Reserva_Usuario FOREIGN KEY (CPF_Usuario)
+        REFERENCES USUARIO (CPF),
+        
+    -- Chave Estrangeira para INFRAESTRUTURA
+    CONSTRAINT FK_Reserva_Infra FOREIGN KEY (ID_Infra)
+        REFERENCES INFRAESTRUTURA (ID_Infra)
+);
+
+CREATE TABLE PARTICIPA (
+    CPF_Usuario VARCHAR(11) NOT NULL,
+    ID_Evento INT NOT NULL,
+    
+    -- Chave Primária Composta
+    PRIMARY KEY (CPF_Usuario, ID_Evento),
+    
+    -- Chave Estrangeira para USUARIO
+    CONSTRAINT FK_Participa_Usuario FOREIGN KEY (CPF_Usuario)
+        REFERENCES USUARIO (CPF),
+        
+    -- Chave Estrangeira para EVENTOS
+    CONSTRAINT FK_Participa_Evento FOREIGN KEY (ID_Evento)
+        REFERENCES EVENTOS (ID_Evento)
+);
