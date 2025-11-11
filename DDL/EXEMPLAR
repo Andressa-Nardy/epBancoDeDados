@@ -1,12 +1,8 @@
 CREATE TABLE EXEMPLAR (
-    ID_Item INT NOT NULL,
-    Num INT NOT NULL,
-    Disponivel BOOLEAN,
-    
-    -- Chave Primária Composta
+    ID_Item INT,
+    Num INT,
+    Disponivel BOOLEAN DEFAULT TRUE,
     PRIMARY KEY (ID_Item, Num),
-    
-    -- Chave Estrangeira para ITEM_FISICO
-    CONSTRAINT FK_Exemplar_ItemFisico FOREIGN KEY (ID_Item)
-        REFERENCES ITEM_FISICO (ID_Item)
+    CONSTRAINT FK_Exemplar_Item FOREIGN KEY (ID_Item)
+        REFERENCES ITEM_ACERVO(ID_Item)
 );
