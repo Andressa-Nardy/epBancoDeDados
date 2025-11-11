@@ -1,26 +1,62 @@
+INSERT INFRAESTRUTURA (30)
 INSERT INTO INFRAESTRUTURA (ID_Infra, Local, Status, Tipo, Capacidade, Quantidade) VALUES
-(1, 'Auditório Principal', 'Disponível', 'Auditório', 300, 1),
-(2, 'Sala de Reunião A', 'Reservada', 'Sala de Reunião', 20, 1),
-(3, 'Sala de Reunião B', 'Disponível', 'Sala de Reunião', 15, 1),
-(4, 'Sala de Estudos 1', 'Disponível', 'Sala de Estudos', 8, 5),
-(5, 'Sala de Estudos 2', 'Disponível', 'Sala de Estudos', 8, 5),
-(6, 'Sala de Estudos 3', 'Disponível', 'Sala de Estudos', 8, 5),
-(7, 'Sala de Estudos 4', 'Disponível', 'Sala de Estudos', 8, 5),
-(8, 'Sala de Estudos 5', 'Disponível', 'Sala de Estudos', 8, 5),
-(9, 'Laboratório de Informática 1', 'Disponível', 'Laboratório', 30, 1),
-(10, 'Laboratório de Informática 2', 'Disponível', 'Laboratório', 30, 1),
-(11, 'Pátio Central', 'Disponível', 'Área Externa', 500, 1),
-(12, 'Sala Multiuso', 'Reservada', 'Sala Multiuso', 50, 1),
-(13, 'Cabine de Gravação 1', 'Disponível', 'Cabine', 2, 1),
-(14, 'Cabine de Gravação 2', 'Disponível', 'Cabine', 2, 1),
-(15, 'Biblioteca Setor A', 'Disponível', 'Setor de Leitura', 100, 1),
-(16, 'Biblioteca Setor B', 'Disponível', 'Setor de Leitura', 80, 1),
-(17, 'Sala de Palestras Pequena', 'Disponível', 'Sala de Palestras', 40, 1),
-(18, 'Sala de Treinamento 1', 'Disponível', 'Sala de Treinamento', 25, 1),
-(19, 'Sala de Treinamento 2', 'Disponível', 'Sala de Treinamento', 25, 1),
-(20, 'Sala de Lazer', 'Disponível', 'Sala de Lazer', 30, 1),
-(21, 'Cozinha Experimental', 'Disponível', 'Laboratório', 15, 1),
-(22, 'Sala de Arte', 'Disponível', 'Sala Especial', 20, 1),
-(23, 'Terraço', 'Disponível', 'Área Externa', 150, 1),
-(24, 'Mini Auditório', 'Disponível', 'Auditório', 80, 1),
-(25, 'Sala de Apoio', 'Disponível', 'Sala de Apoio', 10, 1);
+
+(1, 'Anexo - Sala 101', 'Em manutenção', 'Cabine', 20, 5),
+
+(2, 'Prédio Central - Sala 102', 'Reservada', 'Sala de Treinamento', 25, 3),
+
+(3, 'Bloco A - Sala 103', 'Disponível', 'Auditório', 50, 5),
+
+(4, 'Bloco C - Sala 104', 'Disponível', 'Cabine', 50, 2),
+
+(5, 'Prédio Central - Sala 105', 'Reservada', 'Biblioteca', 20, 3),
+
+(6, 'Bloco B - Sala 106', 'Disponível', 'Sala de Treinamento', 150, 3),
+
+(7, 'Anexo - Sala 107', 'Reservada', 'Cozinha', 80, 3),
+
+(8, 'Bloco B - Sala 108', 'Disponível', 'Sala de Treinamento', 100, 1),
+
+(9, 'Bloco A - Sala 109', 'Disponível', 'Laboratório', 20, 5),
+
+(10, 'Anexo - Sala 110', 'Disponível', 'Sala Multiuso', 80, 5),
+
+(11, 'Anexo - Sala 111', 'Reservada', 'Sala de Treinamento', 10, 1),
+
+(12, 'Anexo - Sala 112', 'Reservada', 'Sala de Estudos', 15, 3),
+
+(13, 'Prédio Central - Sala 113', 'Disponível', 'Biblioteca', 10, 3),
+
+(14, 'Anexo - Sala 114', 'Disponível', 'Sala de Treinamento', 15, 3),
+
+(15, 'Anexo - Sala 115', 'Em manutenção', 'Cabine', 20, 3),
+
+(16, 'Bloco B - Sala 116', 'Em manutenção', 'Sala de Treinamento', 10, 3),
+
+(17, 'Prédio Central - Sala 117', 'Disponível', 'Sala', 50, 3),
+
+(18, 'Bloco B - Sala 118', 'Disponível', 'Cabine', 15, 1),
+
+(19, 'Prédio Central - Sala 119', 'Disponível', 'Sala de Treinamento', 20, 2),
+
+(20, 'Prédio Central - Sala 120', 'Em manutenção', 'Laboratório', 30, 5),
+
+(21, 'Bloco B - Sala 121', 'Em manutenção', 'Cabine', 30, 5),
+
+(22, 'Bloco C - Sala 122', 'Reservada', 'Sala de Treinamento', 100, 1),
+
+(23, 'Bloco B - Sala 123', 'Disponível', 'Sala', 50, 1),
+
+(24, 'Anexo - Sala 124', 'Em manutenção', 'Cabine', 25, 1),
+
+(25, 'Bloco A - Sala 125', 'Em manutenção', 'Auditório', 25, 1),
+
+(26, 'Bloco A - Sala 126', 'Reservada', 'Sala', 150, 2),
+
+(27, 'Bloco C - Sala 127', 'Em manutenção', 'Biblioteca', 25, 2),
+
+(28, 'Anexo - Sala 128', 'Em manutenção', 'Biblioteca', 25, 5),
+
+(29, 'Prédio Central - Sala 129', 'Disponível', 'Sala', 15, 5),
+
+(30, 'Bloco C - Sala 130', 'Reservada', 'Sala Multiuso', 100, 1);
