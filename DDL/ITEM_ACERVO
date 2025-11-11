@@ -1,7 +1,7 @@
 CREATE TABLE ITEM_ACERVO (
-    ID_Item INT PRIMARY KEY,
-    Titulo VARCHAR(255) NOT NULL,
+    ID_Item SERIAL PRIMARY KEY,
+    Titulo VARCHAR(100) NOT NULL,
     Genero VARCHAR(50),
     Autor VARCHAR(100),
-    Ano_Publicacao INT,
+    Ano_Publicacao INT
 );
