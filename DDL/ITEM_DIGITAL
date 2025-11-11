@@ -1,10 +1,8 @@
 CREATE TABLE ITEM_DIGITAL (
-    ID_Item INT PRIMARY KEY,
-    Formato VARCHAR(20),
+    ID_Item SERIAL PRIMARY KEY,
+    Formato VARCHAR(10),
     Link_Acesso VARCHAR(255),
     Num_Downloads INT DEFAULT 0,
-    
-    -- PK/FK para ITEM_ACERVO
-    CONSTRAINT FK_ItemDigital_Acervo FOREIGN KEY (ID_Item)
-        REFERENCES ITEM_ACERVO (ID_Item)
+    CONSTRAINT FK_ItemDigital_Item FOREIGN KEY (ID_Item)
+        REFERENCES ITEM_ACERVO(ID_Item)
 );
