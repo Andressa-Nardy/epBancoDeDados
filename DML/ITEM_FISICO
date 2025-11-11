@@ -1,16 +1,62 @@
+INSERT ITEM_FISICO (30)
 INSERT INTO ITEM_FISICO (ID_Item, Setor, Prateleira) VALUES
-(1001, 'Técnico', 'P1'),
-(1002, 'Ficção', 'P3'),
-(1003, 'Revistas', 'P10'),
-(1005, 'Mídia', 'P15'),
-(1006, 'Técnico', 'P2'),
-(1007, 'Aventura', 'P4'),
-(1009, 'Biografia', 'P12'),
-(1011, 'Ciência', 'P1'),
-(1012, 'Romance', 'P5'),
-(1013, 'Revistas', 'P11'),
-(1014, 'Mídia', 'P16'),
-(1015, 'Design', 'P13'),
-(1017, 'História', 'P2'),
-(1018, 'Ficção', 'P6'),
-(1020, 'Matemática', 'P3');
+
+(1, 'Matemática', 'P18'),
+
+(2, 'História', 'P1'),
+
+(3, 'Ficção', 'P9'),
+
+(4, 'Revistas', 'P19'),
+
+(5, 'Design', 'P2'),
+
+(6, 'Ficção', 'P20'),
+
+(7, 'Matemática', 'P12'),
+
+(8, 'História', 'P14'),
+
+(9, 'Ciência', 'P17'),
+
+(10, 'Ficção', 'P13'),
+
+(11, 'Ciência', 'P7'),
+
+(12, 'Design', 'P2'),
+
+(13, 'Matemática', 'P1'),
+
+(14, 'Negócios', 'P18'),
+
+(15, 'Mídia', 'P12'),
+
+(16, 'Matemática', 'P3'),
+
+(17, 'História', 'P20'),
+
+(18, 'História', 'P4'),
+
+(19, 'Design', 'P17'),
+
+(20, 'Design', 'P14'),
+
+(21, 'História', 'P13'),
+
+(22, 'Design', 'P18'),
+
+(23, 'Revistas', 'P7'),
+
+(24, 'Matemática', 'P13'),
+
+(25, 'Revistas', 'P20'),
+
+(26, 'Ciência', 'P10'),
+
+(27, 'Matemática', 'P18'),
+
+(28, 'Técnico', 'P10'),
+
+(29, 'Design', 'P7'),
+
+(30, 'Matemática', 'P19');
