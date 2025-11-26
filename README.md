@@ -9,7 +9,7 @@ O projeto foi desenvolvido a partir de um **Modelo Entidade-Relacionamento (MER)
 ### 🎯 Objetivos
 
 * **Modelagem de Dados:** Criar um diagrama E-R que represente as regras de negócio de um sistema complexo.
-* **Normalização:** Converter o modelo conceitual em um modelo relacional normalizado (3FN).
+* **Normalização:** Converter o modelo conceitual em um modelo relacional.
 * **Implementação SQL:** Gerar o script SQL para construção do esquema do banco de dados.
 
 ---
@@ -59,7 +59,7 @@ Para configurar o esquema do banco de dados, você precisará de um Sistema Gere
     -- Ou conecte-se via seu cliente SQL.
     ```
 
-3.  **Execute o Script DDL:** Copie e cole o conteúdo do arquivo `schema_creation.sql` (ou o código fornecido) no seu cliente SQL e execute-o.
+3.  **Execute o Script DDL:** Copie e cole o conteúdo do arquivo `DDL` no seu cliente SQL e execute-o.
 
     > **Nota:** Certifique-se de executar as tabelas na ordem correta, pois as Chaves Estrangeiras (FKs) dependem que as tabelas "pai" já existam.
 
