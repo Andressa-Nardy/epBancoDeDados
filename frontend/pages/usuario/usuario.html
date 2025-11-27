@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Usuários</title><link rel="stylesheet" href="../../style.css"></head>
+<body>
+<div class="container">
+  <div class="header"><h1>Usuários</h1><a class="btn" href="../../index.html">Voltar</a></div>
+  <div class="card">
+    <h3>Lista de usuários</h3>
+    <div id="users-root"><p class="small">Carregando...</p></div>
+  </div>
+  <div class="card">
+    <h3>Criar usuário</h3>
+    <div class="form-row"><input id="u-name" class="input" placeholder="Nome"><input id="u-email" class="input" placeholder="Email"><button class="btn" onclick="createUser()">Criar</button></div>
+    <div id="create-result" class="small"></div>
+  </div>
+</div>
+<script>
+async function loadUsers(){
+  const root=document.getElementById('users-root');
+  try{
+    const res=await fetch('/api/users');
+    if(!res.ok){ root.innerHTML='<p class="small">Erro ao buscar</p>'; return; }
+    const users=await res.json();
+    root.innerHTML='<table class="table"><thead><tr><th>Nome</th><th>Email</th><th>Ações</th></tr></thead><tbody>'+users.map(u=>'<tr><td>'+ (u.name||'') +'</td><td>'+ (u.email||'') +'</td><td><button class="btn" onclick="deleteUser('+u.id+')">Excluir</button></td></tr>').join('')+'</tbody></table>';
+  }catch(e){ root.innerHTML='<p class="small">Falha: '+e.message+'</p>'; }
+}
+async function createUser(){
+  const name=document.getElementById('u-name').value.trim();
+  const email=document.getElementById('u-email').value.trim();
+  if(!name){ document.getElementById('create-result').textContent='Nome obrigatório'; return;}
+  try{
+    const res=await fetch('/api/users',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email})});
+    if(!res.ok){ document.getElementById('create-result').textContent='Erro ao criar'; return; }
+    document.getElementById('create-result').textContent='Criado com sucesso';
+    document.getElementById('u-name').value='';document.getElementById('u-email').value='';
+    loadUsers();
+  }catch(e){ document.getElementById('create-result').textContent='Falha: '+e.message; }
+}
+async function deleteUser(id){
+  if(!confirm('Deseja excluir?')) return;
+  try{
+    const res=await fetch('/api/users/'+id,{method:'DELETE'});
+    if(!res.ok){ alert('Erro'); return; }
+    loadUsers();
+  }catch(e){ alert('Falha: '+e.message); }
+}
+loadUsers();
+</script>
+</body>
+</html>

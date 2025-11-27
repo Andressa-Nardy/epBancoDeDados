@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Análise</title><link rel="stylesheet" href="../../style.css"></head>
+<body>
+<div class="container">
+  <div class="header"><h1>Análise</h1><a class="btn" href="../../index.html">Voltar</a></div>
+  <div class="card">
+    <h3>Ferramenta de consulta</h3>
+    <div>
+      <div class="form-row"><input id="q" class="input" placeholder="Pesquisar livro, autor..."><button class="btn" onclick="runQuery()">Pesquisar</button></div>
+      <div id="q-result"></div>
+    </div>
+  </div>
+</div>
+<script>
+async function runQuery(){
+  const q=document.getElementById('q').value.trim();
+  const root=document.getElementById('q-result');
+  if(!q){ root.innerHTML='<p class="small">Digite uma consulta</p>'; return; }
+  root.innerHTML='<p class="small">Buscando...</p>';
+  try{
+    const res=await fetch('/api/search?q='+encodeURIComponent(q));
+    if(!res.ok){ root.innerHTML='<p class="small">Erro</p>'; return; }
+    const data=await res.json();
+    if(!Array.isArray(data)){ root.innerHTML='<p class="small">Resposta inesperada</p>'; return; }
+    root.innerHTML='<table class="table"><thead><tr><th>Título</th><th>Autor</th></tr></thead><tbody>'+data.map(d=>'<tr><td>'+ (d.title||'') +'</td><td>'+ (d.author||'') +'</td></tr>').join('')+'</tbody></table>';
+  }catch(e){ root.innerHTML='<p class="small">Falha: '+e.message+'</p>'; }
+}
+</script>
+</body>
+</html>

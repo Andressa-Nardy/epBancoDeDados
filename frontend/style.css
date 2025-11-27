@@ -1,0 +1,131 @@
+:root {
+    --cor-principal: #8d7966;
+    --cor-secundaria: #a8a39d;
+    --cor-acento: #d8c8b8;
+    --cor-fundo-claro: #f8f1e9;
+    --cor-texto: #333;
+    --cor-sucesso-bg: #e6f4ea;
+    --cor-sucesso-txt: #1e8e3e;
+    --cor-erro-bg: #fce8e6;
+    --cor-erro-txt: #c5221f;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto);
+}
+
+/* Header Global */
+header.main-header {
+    background-color: var(--cor-principal);
+    color: var(--cor-fundo-claro);
+    padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo-area h1 { margin: 0; font-size: 1.5rem; }
+
+/* Navegação */
+.main-nav { display: flex; gap: 10px; }
+.nav-btn {
+    background: rgba(255,255,255,0.2); border: none; color: white;
+    padding: 10px 15px; border-radius: 4px; cursor: pointer; transition: 0.2s;
+}
+.nav-btn:hover, .nav-btn.active { background: white; color: var(--cor-principal); font-weight: bold; }
+
+/* Estrutura Geral */
+.container-principal { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+.view-section { display: none; }
+.view-section.active { display: block; animation: fadeIn 0.3s; }
+.view-section.hidden { display: none; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Cards (Conteúdo) */
+.card-conteudo {
+    background-color: white; padding: 1.5rem; border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 2rem;
+}
+
+/* Formulários */
+.form-grupo { margin-bottom: 1rem; }
+.form-grupo label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--cor-principal); }
+.form-grupo input, .form-grupo select {
+    width: 100%; padding: 10px; border: 1px solid var(--cor-acento); border-radius: 4px; box-sizing: border-box; font-size: 16px;
+}
+
+/* Botões */
+.btn-primario {
+    background-color: var(--cor-principal); color: var(--cor-fundo-claro);
+    border: none; padding: 10px 15px; font-size: 16px; cursor: pointer; border-radius: 5px; margin-top: 10px;
+}
+.btn-primario:hover { background-color: #7a6a58; }
+
+.btn-secundario {
+    background-color: white; border: 1px solid var(--cor-principal); color: var(--cor-principal);
+    padding: 8px 15px; border-radius: 5px; cursor: pointer;
+}
+.btn-secundario:hover { background-color: var(--cor-fundo-claro); }
+
+/* --- Estilos Específicos do GERENCIAMENTO (Tabela Dinâmica) --- */
+.toolbar-gerenciamento { display: flex; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 10px; }
+.tabs-container { display: flex; gap: 5px; }
+.tab-btn {
+    padding: 10px 20px; border: none; background: #e0d8d0; cursor: pointer; color: var(--cor-principal); border-radius: 5px 5px 0 0;
+}
+.tab-btn.active { background: white; font-weight: bold; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th { text-align: left; padding: 12px; border-bottom: 2px solid var(--cor-acento); color: var(--cor-principal); }
+td { padding: 12px; border-bottom: 1px solid #eee; }
+
+/* Chips de Filtro */
+.area-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.chip-filtro {
+    background: var(--cor-fundo-claro); border: 1px solid var(--cor-principal); color: var(--cor-principal);
+    padding: 5px 12px; border-radius: 20px; display: flex; align-items: center; gap: 8px; font-size: 0.9em;
+}
+.chip-filtro i { cursor: pointer; color: var(--cor-erro-txt); }
+
+/* Tags de Status */
+.tag-padrao { background: #eee; padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8em; }
+.tag-sucesso { background: var(--cor-sucesso-bg); color: var(--cor-sucesso-txt); padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8em; }
+.tag-erro { background: var(--cor-erro-bg); color: var(--cor-erro-txt); padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8em; }
+
+/* --- Estilos Específicos de ANÁLISE --- */
+.lista-resultados { list-style-type: none; padding: 0; margin-top: 1rem; }
+.lista-resultados li {
+    background-color: white; border: 1px solid var(--cor-acento); padding: 12px; margin-bottom: 5px; border-radius: 4px;
+}
+.lista-resultados li:first-child { background-color: var(--cor-fundo-claro); font-weight: bold; }
+.lista-resultados li p { margin: 5px 0; line-height: 1.4; font-size: 0.95em; }
+.item-label { font-weight: bold; color: var(--cor-principal); margin-right: 5px; }
+.item-value { color: var(--cor-texto); }
+
+/* Modais */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 99; }
+.modal.oculto { display: none; }
+.modal-content { background: white; padding: 2rem; border-radius: 8px; width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 1.5rem; }
+.checkbox-label { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; cursor: pointer; }
+.grid-checkbox { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 1rem; }
+
+/* --- Ajustes do Logo --- */
+.logo-img {
+    height: 120px;       /* <--- Mude este valor para aumentar ou diminuir */
+    width: auto;        /* Mantém a proporção correta */
+    border-radius: 50%; /* Deixa redonda (opcional) */
+    object-fit: cover;  /* Garante que a imagem não distorça */
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 5px;          /* Espaço entre a logo e o texto */
+}
+
+/* Ajuste opcional para o texto ficar proporcional ao novo tamanho */
+.logo-area h1 {
+    font-size: 1.2rem;  /* Reduzi um pouco a fonte do título */
+    margin: 0;
+}
